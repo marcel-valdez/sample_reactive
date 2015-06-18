@@ -1,37 +1,8 @@
 $(document).ready(function() {
   var GITHUB_USERS_URL = 'https://api.github.com/users';
-  var NEW_USER_BATCH = "__user__batch__";
-  // var requestStream = Rx.Observable.just('https://api.github.com/users');
-  // requestStream.subscribe(function(requestUrl) {
-  //   var responseStream = Rx.Observable.create(function(observer) {
-  //     $.getJSON(requestUrl)
-  //      .done(function (response) {
-  //        observer.onNext(response);
-  //      })
-  //      .fail(function (jqXHR, status, error) {
-  //        observer.onError(error);
-  //      })
-  //      .always(function () {
-  //        observer.onCompleted();
-  //      });
-  //   };
-  // });
-
 
   var refreshButton = document.querySelector('.refresh');
   var refreshClickStream = Rx.Observable.fromEvent(refreshButton, 'click');
-
-  // var requestOnRefreshStream = refreshClickStream
-  //   .map(function () {
-  //     var randomOffset = Math.floor(Math.random() * 500);
-  //     return 'https://api.github.com/users?since=' + randomOffset;
-  //   });
-
-  // var startupRequestStream = Rx.Observable.just('https://api.github.com/users');
-
-  // var requestStream = Rx.Observable.merge(
-  //   requestOnRefreshStream, startupRequestStream
-  // );
 
   var randomOffset = function () {
     return Math.floor(Math.random() * 500);
